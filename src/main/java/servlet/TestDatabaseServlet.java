@@ -3,7 +3,7 @@ package servlet;
 import utils.EntityManagerUtil; // Utility class to get EntityManager
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
+// removed WebServlet annotation to avoid duplicate mapping (mapping is in web.xml)
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.persistence.EntityManager;
 
-@WebServlet("/test")
 public class TestDatabaseServlet extends HttpServlet {
 
     @Override

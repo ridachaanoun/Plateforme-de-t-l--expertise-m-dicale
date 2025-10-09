@@ -1,0 +1,14 @@
+package entities.enums;
+
+public enum Specialities {
+    CARDIOLOGIE,
+    PNEUMOLOGIE,
+    NEUROLOGIE,
+    GASTRO_ENTEROLOGIE,
+    ENDOCRINOLOGIE,
+    DERMATOLOGIE,
+    RHUMATOLOGIE,
+    PSYCHIATRIE,
+    NEPHROLOGIE,
+    ORTHOPEDIE
+}

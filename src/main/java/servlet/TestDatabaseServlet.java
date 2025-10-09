@@ -1,17 +1,22 @@
 package servlet;
 
+import entities.User;
+import entities.enums.ERole;
 import utils.EntityManagerUtil; // Utility class to get EntityManager
 
 import jakarta.servlet.ServletException;
-// removed WebServlet annotation to avoid duplicate mapping (mapping is in web.xml)
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.EntityManager;
 
+@WebServlet("/test")
 public class TestDatabaseServlet extends HttpServlet {
 
     @Override
@@ -23,8 +28,24 @@ public class TestDatabaseServlet extends HttpServlet {
         try {
             em = EntityManagerUtil.getEntityManager(); // get JPA EntityManager
             em.getTransaction().begin();
-            em.createNativeQuery("SELECT 1").getSingleResult(); // simple test query
+//            EntityManagerFactory emf = Persistence.createEntityManagerFactory("medicalPU");
+//            EntityManager em = emf.createEntityManager();
+//
+//            em.getTransaction().begin();
+
+            User user = new User();
+            user.setFullName("Test User");
+            user.setUsername("testuser");
+            user.setEmail("test@gmail.com");
+            user.setPassword("123456");
+            user.setRole(ERole.NURSE);
+            user.setCreatedAt(LocalDateTime.now());
+            user.setUpdatedAt(LocalDateTime.now());
+
+            em.persist(user);
             em.getTransaction().commit();
+
+            em.close();
 
             out.println("<h2> Database connection successful!</h2>");
         } catch (Exception e) {

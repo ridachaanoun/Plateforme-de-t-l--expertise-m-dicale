@@ -7,14 +7,4 @@
 
     <display-name>Medical App</display-name>
 
-    <servlet>
-        <servlet-name>TestDatabaseServlet</servlet-name>
-        <servlet-class>servlet.TestDatabaseServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>TestDatabaseServlet</servlet-name>
-        <url-pattern>/test</url-pattern>
-    </servlet-mapping>
-
 </web-app>

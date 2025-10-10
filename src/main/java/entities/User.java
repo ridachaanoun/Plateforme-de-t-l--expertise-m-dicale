@@ -3,6 +3,8 @@ package entities;
 import enums.ERole;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -24,6 +26,13 @@ public class User {
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    // Relations
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Request> requests = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Consultation> consultations = new ArrayList<>();
 
     // --- Constructors ---
     public User() {}

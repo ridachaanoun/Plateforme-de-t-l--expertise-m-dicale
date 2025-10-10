@@ -1,6 +1,6 @@
 package entities;
 
-import entities.enums.Specialities;
+import enums.Specialities;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,7 +15,7 @@ public class Specialist extends User {
     public Specialist() {}
 
     public Specialist(String fullName, String username, String email, String password, Specialities speciality, double consultationFee, int consultationDuration) {
-        super(fullName, username, email, password, entities.enums.ERole.SPECIALIST);
+        super(fullName, username, email, password, enums.ERole.SPECIALIST);
         this.speciality = speciality;
         this.consultationFee = consultationFee;
         this.consultationDuration = consultationDuration;
@@ -39,7 +39,7 @@ public class Specialist extends User {
     public int getConsultationDuration() { 
         return consultationDuration; 
     }
-    
+
     public void setConsultationDuration(int consultationDuration) { 
         this.consultationDuration = consultationDuration; 
     }

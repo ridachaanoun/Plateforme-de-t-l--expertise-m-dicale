@@ -1,6 +1,6 @@
 package entities;
 
-import entities.enums.ERole;
+import enums.ERole;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;

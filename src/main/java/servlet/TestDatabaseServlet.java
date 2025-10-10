@@ -1,7 +1,7 @@
 package servlet;
 
 import entities.User;
-import entities.enums.ERole;
+import enums.ERole;
 import utils.EntityManagerUtil; // Utility class to get EntityManager
 
 import jakarta.servlet.ServletException;

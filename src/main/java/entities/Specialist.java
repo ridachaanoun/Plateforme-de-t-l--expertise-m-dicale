@@ -1,5 +1,8 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import enums.Specialities;
 import jakarta.persistence.*;
 
@@ -11,6 +14,10 @@ public class Specialist extends User {
     private Specialities speciality;
     private double consultationFee;
     private int consultationDuration;
+
+    
+    @OneToMany(mappedBy = "specialist", cascade = CascadeType.ALL)
+    private List<Consultation> consultations = new ArrayList<>();
 
     public Specialist() {}
 
